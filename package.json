@@ -1,0 +1,14 @@
+{
+  "name": "tooltipwme",
+  "version": "1.0.0",
+  "description": "A simple, easy-to-use tooltip for your projects",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.css"
+  ],
+  "keywords": ["tooltip", "ui", "javascript", "tooltipwme"],
+  "author": "oluwaferanmi",
+  "license": "MIT"
+}

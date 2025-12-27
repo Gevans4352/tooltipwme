@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    font-family: sans-serif;
+    padding: 20px;
+}
+.tooltip-toogler {
+    position: relative;
+    padding: 12px 24px;
+    cursor: pointer;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.toolTip {
+    width: 120px;
+    background-color: black;
+    padding: 8px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+.tooltip-toogler:hover > .toolTip {
+    visibility: visible;
+    opacity: 1;
+}
+.toolTip.onTop {
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+.tooltip-toogler:hover > .toolTip.onTop {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toolTip.onBottom {
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+}
+.tooltip-toogler:hover > .toolTip.onBottom {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toolTip.onLeft {
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+}
+.tooltip-toogler:hover > .toolTip.onLeft {
+    transform: translateY(-50%) translateX(0);
+}
+
+.toolTip.onRight {
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+}
+.tooltip-toogler:hover > .toolTip.onRight {
+    transform: translateY(-50%) translateX(0);
+}
+.toolTip::after {
+    content: '';
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+}
+
+.toolTip.onTop::after {
+    top: 100%; left: 50%; transform: translateX(-50%);
+    border-color: black transparent transparent transparent;
+}
+.toolTip.onBottom::after {
+    bottom: 100%; left: 50%; transform: translateX(-50%);
+    border-color: transparent transparent black transparent;
+}
+.toolTip.onLeft::after {
+    left: 100%; top: 50%; transform: translateY(-50%);
+    border-color: transparent transparent transparent black;
+}
+.toolTip.onRight::after {
+    right: 100%; top: 50%; transform: translateY(-50%);
+    border-color: transparent black transparent transparent;
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .tooltip-toogler {
+        width: 200px;
+    }
+}
